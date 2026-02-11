@@ -1,3 +1,8 @@
+![.NET](https://img.shields.io/badge/.NET-8.0-blue)
+![License](https://img.shields.io/badge/License-Educational-lightgrey)
+![Status](https://img.shields.io/badge/Status-Active-success)
+
+
 # Mini AI Image Generator
 
 ASP.NET Core MVC (.NET 8) + Gemini API
