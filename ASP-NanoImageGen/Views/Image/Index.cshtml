@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="card">
+    <div class="row">
+        <label class="label">Prompt</label>
+        <textarea id="prompt" class="textarea" placeholder="Enter your promt..."></textarea>
+    </div>
+
+    <div class="grid">
+        <div class="row">
+            <label class="label">Model</label>
+            <select id="model" class="input">
+                <option value="gemini-2.5-flash-image" selected>gemini-2.5-flash-image</option>
+                <option value="gemini-3-pro-image-preview">gemini-3-pro-image-preview</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label class="label">Aspect Ratio</label>
+            <select id="ratio" class="input">
+                <option value="1:1" selected>1:1</option>
+                <option value="4:5">4:5</option>
+                <option value="3:4">3:4</option>
+                <option value="16:9">16:9</option>
+                <option value="9:16">9:16</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button id="btn" class="btn">Generate</button>
+
+        <div class="statusWrap">
+            <div id="status" class="status"></div>
+
+            <div id="errHint" class="errHint" style="display:none;">
+                <span class="errHintText">An error occurred</span>
+                <button id="errBtn" class="errBtn" type="button" aria-label="Show error details">
+                    !
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="previewHeader">
+        <div class="label">Result</div>
+        <a id="openImg" class="link" href="#" target="_blank" rel="noreferrer" style="display:none;">Open</a>
+    </div>
+
+    <div class="preview">
+        <img id="img" class="img" alt="" style="display:none;" />
+        <div id="empty" class="empty">No image yet.</div>
+    </div>
+</div>
+
+<div id="errModal" class="modal" style="display:none;">
+    <div class="modalBackdrop" data-close="1"></div>
+
+    <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="errTitle">
+        <div class="modalTop">
+            <div class="modalTitle" id="errTitle">Request Error</div>
+            <button id="errClose" class="modalClose" type="button" aria-label="Close">×</button>
+        </div>
+
+        <div class="modalBody">
+            <div class="modalMeta">
+                <div class="pillRow">
+                    <div class="pill" id="errCode">CODE</div>
+                    <button id="copyCode" class="iconBtn" type="button" aria-label="Copy error code" title="Copy">
+                        ⧉
+                    </button>
+                </div>
+
+                <div class="pill" id="errStatus">STATUS</div>
+            </div>
+
+            <div class="modalSub" id="errMsg">Message</div>
+
+            <div class="modalLabel">Raw response</div>
+            <pre class="modalPre" id="errRaw"></pre>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast" style="display:none;">
+    <div id="toastText" class="toastText">Copied</div>
+</div>
+
+@section Scripts {
+    <script>
+        window.miniAiInit();
+    </script>
+}

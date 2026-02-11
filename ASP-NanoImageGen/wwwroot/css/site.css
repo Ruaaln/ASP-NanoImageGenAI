@@ -1,0 +1,434 @@
+﻿:root {
+    --bg: #0b0f17;
+    --card: #101827;
+    --muted: rgba(255,255,255,.65);
+    --text: rgba(255,255,255,.92);
+    --line: rgba(255,255,255,.10);
+    --btn: rgba(255,255,255,.12);
+    --btnHover: rgba(255,255,255,.18);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(1200px 600px at 20% 10%, rgba(120,160,255,.12), transparent 60%), radial-gradient(1000px 700px at 80% 0%, rgba(255,120,200,.10), transparent 55%), var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.topbar {
+    padding: 18px 18px 10px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(16,24,39,.55);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.sub {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 16px;
+    display: grid;
+    gap: 14px;
+}
+
+.card {
+    background: rgba(16,24,39,.82);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 14px 40px rgba(0,0,0,.35);
+}
+
+.row {
+    display: grid;
+    gap: 8px;
+}
+
+.label {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: rgba(0,0,0,.22);
+    color: var(--text);
+    outline: none;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: rgba(0,0,0,.22);
+    color: var(--text);
+    outline: none;
+}
+
+.grid {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.actions {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--btn);
+    color: var(--text);
+    cursor: pointer;
+}
+
+    .btn:hover {
+        background: var(--btnHover);
+    }
+
+    .btn:disabled {
+        opacity: .6;
+        cursor: not-allowed;
+    }
+
+.status {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+    .status.busy {
+        color: rgba(255,255,255,.80);
+    }
+
+.previewHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.link {
+    font-size: 13px;
+    color: rgba(180,210,255,.95);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: rgba(0,0,0,.20);
+}
+
+    .link:hover {
+        background: rgba(0,0,0,.28);
+    }
+
+.preview {
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: rgba(0,0,0,.18);
+    padding: 10px;
+    min-height: 320px;
+    display: grid;
+    place-items: center;
+}
+
+.img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.empty {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+@media (max-width: 720px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .preview {
+        min-height: 260px;
+    }
+}
+
+
+.statusWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.errBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,70,70,.18);
+  color: rgba(255,255,255,.92);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.errBtn:hover {
+  background: rgba(255,70,70,.26);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+}
+
+.modalBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+}
+
+.modalCard {
+  position: relative;
+  width: min(720px, calc(100% - 24px));
+  margin: 64px auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(16,24,39,.96);
+  box-shadow: 0 22px 70px rgba(0,0,0,.55);
+  overflow: hidden;
+}
+
+.modalTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.modalTitle {
+  font-weight: 700;
+}
+
+.modalClose {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.20);
+  color: rgba(255,255,255,.92);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 0;
+}
+
+.modalClose:hover {
+  background: rgba(0,0,0,.28);
+}
+
+.modalBody {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.modalMeta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-size: 12px;
+  color: rgba(255,255,255,.82);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.20);
+  padding: 5px 8px;
+  border-radius: 999px;
+}
+
+.modalSub {
+  color: rgba(255,255,255,.70);
+  font-size: 13px;
+}
+
+.modalLabel {
+  font-size: 12px;
+  color: rgba(255,255,255,.65);
+}
+
+.modalPre {
+  margin: 0;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.26);
+  color: rgba(255,255,255,.88);
+  overflow: auto;
+  max-height: 320px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+
+.statusWrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.errHint {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,80,80,.10);
+}
+
+.errHintText {
+    font-size: 13px;
+    color: rgba(255,255,255,.86);
+}
+
+.errBtn {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,70,70,.18);
+    color: rgba(255,255,255,.92);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+    .errBtn:hover {
+        background: rgba(255,70,70,.26);
+    }
+
+.pillRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.iconBtn {
+    width: 34px;
+    height: 28px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(0,0,0,.22);
+    color: rgba(255,255,255,.92);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+    .iconBtn:hover {
+        background: rgba(0,0,0,.30);
+    }
+
+.modalPre {
+    margin: 0;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(0,0,0,.26);
+    color: rgba(255,255,255,.88);
+    overflow: auto;
+    max-height: 320px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.28) rgba(0,0,0,.18);
+}
+
+    .modalPre::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .modalPre::-webkit-scrollbar-track {
+        background: rgba(0,0,0,.18);
+        border-radius: 999px;
+    }
+
+    .modalPre::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,.24);
+        border-radius: 999px;
+        border: 2px solid rgba(0,0,0,.18);
+    }
+
+        .modalPre::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,.34);
+        }
+
+.toast {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 3000;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(16,24,39,.95);
+    box-shadow: 0 18px 60px rgba(0,0,0,.55);
+    padding: 10px 12px;
+    transform: translateY(0);
+    opacity: 1;
+    transition: opacity .18s ease, transform .18s ease;
+}
+
+.toastText {
+    font-size: 13px;
+    color: rgba(255,255,255,.88);
+}
+
+.toastHide {
+    opacity: 0;
+    transform: translateY(8px);
+}
